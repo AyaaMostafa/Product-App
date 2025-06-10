@@ -1,0 +1,17 @@
+<div class="card">
+  <div [ngClass]="product.stock > 0 ? 'in-stock' : 'out-of-stock'">
+    {{ product.stock > 0 ? 'In stock' : 'Out of stock' }}
+  </div>
+ <img [src]="product.image" alt="{{ product.name }}" class="product-img" />
+
+  <h3>{{ product.name }}</h3>
+  <p>{{ product.price | currency:'EGP' }}</p>
+
+  <div class="stars">
+    <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+      <span [class.filled]="i < product.rate">★</span>
+    </ng-container>
+  </div>
+  
+  <button>Add to Cart</button>
+</div>

@@ -1,0 +1,30 @@
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+}
+
+.in-stock {
+  color: green;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.stars {
+  color: #ccc;
+  font-size: 18px;
+}
+.stars .filled {
+  color: gold;
+}

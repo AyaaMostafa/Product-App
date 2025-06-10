@@ -1,0 +1,13 @@
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.nav-links a {
+  margin: 0 10px;
+}
