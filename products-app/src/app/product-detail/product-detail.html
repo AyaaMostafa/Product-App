@@ -1,0 +1,12 @@
+<div *ngIf="product">
+  <h2>{{ product.title }}</h2>
+  <img [src]="product.thumbnail" />
+  <p>{{ product.price | currency:'EGP' }}</p>
+  <p>Status: 
+    <span [style.color]="product.stock > 0 ? 'green' : 'red'">
+      {{ product.stock > 0 ? 'In stock' : 'Out of stock' }}
+    </span>
+  </p>
+  <p>{{ product.description }}</p>
+  <button>Add to Cart</button>
+</div>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from './Models/product.model';
+import { ProductService } from './Models/product.service';
 
 @Component({
   selector: 'app-root',
@@ -7,67 +8,16 @@ import { Product } from './Models/product.model';
   standalone: false,
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
   protected title = 'products-app';
-   products: Product[] = [{
-     name: 'Wireless Earbuds, IPX8',
-      price: 89,
-      image:  'assets/istockphoto-172867703-612x612.jpg',
-      rate: 4,
-      stock: 1
+  products: Product[] = [];
 
-   },
-    {
-      name: 'AirPods Max',
-      price: 559,
-      image: 'assets/istockphoto-172867703-612x612.jpg',
-      rate: 5,
-      stock: 0
-    },
-    {
-      name: 'Bose BT Earphones',
-      price: 289,
-      image: 'assets/istockphoto-172867703-612x612.jpg',
-      rate: 4,
-      stock: 0
-    },
-    {
-      name: 'VIVEFOX Headphones',
-      price: 39,
-      image: 'assets/photo-1505740420928-5e560c06d30e.jpg',
-      rate: 5,
-      stock: 3
-    },
-     {
-      name: 'VIVEFOX Headphones',
-      price: 39,
-      image: 'assets/photo-1505740420928-5e560c06d30e.jpg',
-      rate: 5,
-      stock: 3
-    }
-    ,
-    {
-      name: 'VIVEFOX Headphones',
-      price: 39,
-      image: 'assets/photo-1505740420928-5e560c06d30e.jpg',
-      rate: 5,
-      stock: 3
-    },
-    {
-      name: 'VIVEFOX Headphones',
-      price: 39,
-      image: 'assets/photo-1505740420928-5e560c06d30e.jpg',
-      rate: 5,
-      stock: 3
-    },
-    {
-      name: 'VIVEFOX Headphones',
-      price: 39,
-      image: 'assets/photo-1505740420928-5e560c06d30e.jpg',
-      rate: 5,
-      stock: 3
-    }
-    
-  
-  ]
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe({
+      next: (data) => this.products = data,
+      error: (err) => console.error('Error loading products', err)
+    });
+  }
 }

@@ -1,13 +1,24 @@
 <h1>Welcome to our shopping website, start browsing...</h1>
-<div class="products-grid">
-  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
-</div>
+<br>
+
 <div class="top-nav">
   <span class="logo">Products App</span>
   <span class="nav-links">
-    <a href="#">Register</a>
-    <a href="#">Login</a>
-    🛒
+    <a routerLink="/">Home</a>
+    <a routerLink="/cart">Cart 🛒</a>
+    <a routerLink="/register">Register</a>
+    <a routerLink="/login">Login</a>
   </span>
 </div>
 
+<!-- Display products only if loaded -->
+<div class="products-grid" *ngIf="products.length > 0; else loading">
+  <app-product-card 
+    *ngFor="let product of products" 
+    [product]="product">
+  </app-product-card>
+</div>
+
+<ng-template #loading>
+  <p>Loading products...</p>
+</ng-template>
