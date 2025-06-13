@@ -5,7 +5,11 @@
   <span class="logo">Products App</span>
   <span class="nav-links">
     <a routerLink="/">Home</a>
-    <a routerLink="/cart">Cart 🛒</a>
+  <a routerLink="/cart">
+  Cart 🛒 <span *ngIf="cartCount > 0">({{ cartCount }})</span>
+</a>
+
+
     <a routerLink="/register">Register</a>
     <a routerLink="/login">Login</a>
   </span>

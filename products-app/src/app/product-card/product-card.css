@@ -28,3 +28,26 @@
 .stars .filled {
   color: gold;
 }
+.add-to-cart-btn {
+  background-color: #007b5e;      /* Stylish green/teal */
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.add-to-cart-btn:hover {
+  background-color: #005f47;
+  transform: scale(1.03);
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+}
+

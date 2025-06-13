@@ -5,6 +5,7 @@ import { App } from './app';
 import { ProductCard } from './product-card/product-card';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetail } from './product-detail/product-detail';
+import { Cart } from './cart/cart';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ProductDetail } from './product-detail/product-detail';
     App,
     ProductCard,
     ProductDetail,
+    Cart,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,35 @@
+<p>cart works!</p>
+<h2>Cart</h2>
+
+<div *ngIf="cartItems.length === 0">
+  <p>Your cart is empty.</p>
+</div>
+
+<div *ngIf="cartItems.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th><th>Quantity</th><th>Remove</th><th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>
+          <img [src]="item.product.thumbnail" width="50" />
+          <div>{{ item.product.title }}</div>
+        </td>
+        <td>
+          <button (click)="increaseQuantity(item.product.id)">+</button>
+          {{ item.quantity }}
+          <button (click)="decreaseQuantity(item.product.id)">-</button>
+        </td>
+        <td><button (click)="removeItem(item.product.id)">X</button></td>
+        <td>{{ item.product.price * item.quantity | currency:'GBP' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="total">
+    <strong>Total: </strong> {{ getTotal() | currency:'GBP' }}
+  </div>
+</div>
